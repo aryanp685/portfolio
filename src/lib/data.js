@@ -78,7 +78,7 @@ export const PROJECTS = [
     lang: "JavaScript",
     year: "2026",
     updated: "Updated Oct 2026",
-    img: "/aryan.jpeg",
+    img: "/portfolio.jpg",
     live: "https://github.com/aryanp685/portfolio",
     href: "https://github.com/aryanp685/portfolio",
   },

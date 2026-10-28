@@ -145,16 +145,41 @@ export default function Work() {
                   ))}
                 </ul>
                 <div className="flex items-center justify-between border-t border-ink/15 pt-4">
-                  <a
-                    href={p.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor="link"
-                    className="group meta relative inline-block py-1"
-                  >
-                    View on GitHub
-                    <span className="absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-ink transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
-                  </a>
+                  {p.live ? (
+                    <>
+                      <a
+                        href={p.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        data-cursor="link"
+                        className="group meta relative inline-block py-1"
+                      >
+                        Live Demo
+                        <span className="absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-ink transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
+                      </a>
+                      <a
+                        href={p.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        data-cursor="link"
+                        className="group meta relative inline-block py-1 ml-4"
+                      >
+                        View on GitHub
+                        <span className="absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-ink transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
+                      </a>
+                    </>
+                  ) : (
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor="link"
+                      className="group meta relative inline-block py-1"
+                    >
+                      View on GitHub
+                      <span className="absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-ink transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
+                    </a>
+                  )}
                   <span className="meta text-dust">{p.updated}</span>
                 </div>
               </div>

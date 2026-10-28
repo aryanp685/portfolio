@@ -1,13 +1,9 @@
 import { useEffect, useRef } from "react";
 import { gsap, initGsap, ScrollTrigger, reduced } from "../../lib/anim";
 
-/**
- * Infinite horizontal type. Base speed is constant; scroll velocity adds drag
- * and can flip direction, so it reacts to how the user is moving.
- */
 export default function Marquee({
   text,
-  speed = 60,
+  speed = 40,
   direction = 1,
   className = "",
 }) {
@@ -30,7 +26,7 @@ export default function Marquee({
 
     const tick = (_t, delta) => {
       x -= ((speed * dir + state.extra) * delta) / 1000;
-      x = ((x % half) + half) % half; // wrap without layout reads
+      x = ((x % half) + half) % half;
       gsap.set(el, { x: -x });
     };
     gsap.ticker.add(tick);
@@ -42,7 +38,7 @@ export default function Marquee({
       onUpdate: (self) => {
         dir = self.direction === 1 ? direction : -direction;
         gsap.to(state, {
-          extra: Math.min(Math.abs(self.getVelocity()) * 0.12, 420),
+          extra: Math.min(Math.abs(self.getVelocity()) * 0.1, 200),
           duration: 0.5,
           overwrite: true,
         });
@@ -56,23 +52,23 @@ export default function Marquee({
   }, [speed, direction]);
 
   const unit = (
-    <span className="whitespace-nowrap pr-[0.35em]">
+    <span className="whitespace-nowrap pr-[0.5em]">
       {text
         .split("—")
         .map((t) => t.trim())
         .filter(Boolean)
         .map((part, i) => (
-        <span key={i}>
-          {part}
-          <span className="px-[0.3em] align-middle text-[0.45em] opacity-50">●</span>
-        </span>
-      ))}
+          <span key={i}>
+            {part}
+            <span className="px-[0.3em] align-middle text-[0.5em] opacity-40">●</span>
+          </span>
+        ))}
     </span>
   );
 
   return (
     <div className={`w-full overflow-hidden ${className}`} aria-hidden>
-      <div ref={track} className="marquee-track font-display" style={{ fontSize: "var(--fs-big)" }}>
+      <div ref={track} className="marquee-track font-medium text-xs tracking-wide">
         {unit}
         {unit}
         {unit}

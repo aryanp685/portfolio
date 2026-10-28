@@ -1,46 +1,41 @@
 @import "tailwindcss";
-@import "./fonts.css";
 
 @theme {
-  --color-bone: var(--c-bone);
-  --color-ink: var(--c-ink);
-  --color-noir: var(--c-noir);
-  --color-dust: var(--c-dust);
-  --color-accent: var(--c-accent);
-  --color-onnoir: var(--c-on-noir);
-  --color-dustnoir: var(--c-dust-on-noir);
-  --font-display: "Anton", "Arial Narrow", Impact, sans-serif;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-hand: "Caveat", "Segoe Script", cursive;
+  --font-sans: "-apple-system", "BlinkMacSystemFont", "SF Pro Display", "SF Pro Text",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", "Menlo", "Monaco", "Consolas", monospace;
 }
 
 :root {
-  /* light (default) — warm off-white surface, near-black ink */
-  --c-bone: #f4f1ec;
-  --c-ink: #0b0b0b;
-  --c-dust: #6e665e;
-  --c-accent: #c7452b;
-  /* Panels share the page surface in BOTH themes, so every section follows
-     the toggle. They are separated by hairlines, not by inverted blocks. */
-  --c-noir: var(--c-bone);
-  --c-on-noir: var(--c-ink);
-  --c-dust-on-noir: var(--c-dust);
+  /* Apple-inspired light theme — pure surface, deep ink */
+  --c-bg: #ffffff;
+  --c-fg: #1d1d1f;
+  --c-muted: #86868b;
+  --c-border: #d2d2d7;
+  --c-surface: #f5f5f7;
+  --c-accent: #007aff;
+  --c-accent-hover: #0062cc;
+  --c-noir: var(--c-bg);
+  --c-on-noir: var(--c-fg);
+  --c-dust-on-noir: var(--c-muted);
 
-  --fs-mega: clamp(3.4rem, 19vw, 21rem);
-  --fs-huge: clamp(2.6rem, 11vw, 11rem);
-  --fs-big: clamp(1.9rem, 5.4vw, 5.2rem);
-  --fs-mid: clamp(1.4rem, 2.6vw, 2.6rem);
-  --pad: clamp(1.25rem, 4vw, 4.5rem);
+  --fs-mega: clamp(3rem, 8vw, 5rem);
+  --fs-huge: clamp(2rem, 5vw, 3.5rem);
+  --fs-big: clamp(1.5rem, 3vw, 2.5rem);
+  --fs-mid: clamp(1.125rem, 2vw, 1.75rem);
+  --pad: clamp(1.5rem, 5vw, 4.5rem);
+  --radius: 24px;
 }
 
-/* Dark mode: near-black surface, warm off-white ink. Only these four tokens
-   flip — the panel tokens above are var() references, so they follow
-   automatically. Symmetrical with light mode (bone ↔ ink). */
 :root.dark {
-  --c-bone: #090909;
-  --c-ink: #f4f1ec;
-  --c-dust: #8a857d;
-  --c-accent: #e0654a;
+  /* Apple-inspired dark theme — pure black surface, white ink */
+  --c-bg: #000000;
+  --c-fg: #ffffff;
+  --c-muted: #8e8e93;
+  --c-border: #38383a;
+  --c-surface: #1c1c1e;
+  --c-accent: #0a84ff;
+  --c-accent-hover: #3a92ff;
 }
 
 html {
@@ -50,161 +45,126 @@ html.dark {
   color-scheme: dark;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
   overflow-x: clip;
   -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
   margin: 0;
-  transition: background-color 0.6s ease, color 0.6s ease;
+  transition: background-color 0.5s ease, color 0.5s ease;
   overflow-x: clip;
-  background: var(--color-bone);
-  color: var(--color-ink);
+  background-color: var(--c-bg);
+  color: var(--c-fg);
   font-family: var(--font-sans);
-  font-synthesis-weight: none;
-  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--color-ink);
-  color: var(--color-bone);
+  background-color: var(--c-accent);
+  color: #ffffff;
 }
 
-.font-display {
-  font-family: var(--font-display);
-  font-weight: 400;
-  letter-spacing: -0.035em;
-  line-height: 0.82;
-  text-transform: uppercase;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
-/* label / meta micro-type */
+h1 {
+  font-size: var(--fs-mega);
+  line-height: 1.05;
+}
+h2 {
+  font-size: var(--fs-huge);
+  line-height: 1.1;
+}
+h3 {
+  font-size: var(--fs-big);
+  line-height: 1.2;
+}
+h4 {
+  font-size: var(--fs-mid);
+  line-height: 1.3;
+}
+
+p {
+  margin: 0;
+  color: var(--c-fg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Meta / small label type — Apple style: tight tracking, small caps feel */
 .meta {
-  font-size: clamp(0.58rem, 0.72vw, 0.72rem);
-  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-weight: 500;
+  color: var(--c-muted);
 }
 
-/* split-text primitives ---------------------------------------- */
-.line-mask {
-  display: block;
-  overflow: hidden;
-  padding-bottom: 0.06em;
-  margin-bottom: -0.06em;
-}
-.char,
-.word {
-  display: inline-block;
-  will-change: transform;
-}
-
-/* hide native cursor only when custom cursor is active ---------- */
-html.has-cursor,
-html.has-cursor * {
-  cursor: none !important;
-}
-
-/* hairlines ------------------------------------------------------ */
+/* Hairlines — subtle section separators */
 .rule {
   height: 1px;
   width: 100%;
-  background: currentColor;
-  opacity: 0.18;
+  background-color: var(--c-border);
+  opacity: 0.5;
 }
 
-.marquee-track {
-  display: flex;
-  width: max-content;
-  will-change: transform;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* premium finish ------------------------------------------------ */
-.text-balance { text-wrap: balance; }
-.text-pretty  { text-wrap: pretty; }
-
-/* fine film grain over the whole page, GPU-cheap and non-blocking */
-.grain::after {
-  content: "";
-  position: fixed;
-  inset: -50%;
-  z-index: 800;
-  pointer-events: none;
-  opacity: 0.035;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  will-change: transform;
-  animation: grain 8s steps(6) infinite;
-}
-@keyframes grain {
-  0%,100% { transform: translate(0,0); }
-  20%  { transform: translate(-3%, 2%); }
-  40%  { transform: translate(2%, -3%); }
-  60%  { transform: translate(-2%, -2%); }
-  80%  { transform: translate(3%, 1%); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .grain::after { animation: none; }
-}
-
-/* skip offscreen paint work on tall sections */
-.cv-auto {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 800px;
-}
-
-/* focus ring that matches the editorial language */
-:focus-visible {
-  outline: 1px solid currentColor;
-  outline-offset: 4px;
-}
-
-.font-hand {
-  font-family: var(--font-hand);
-}
-
-@keyframes eq {
-  0%, 100% { height: 4px; }
-  50%      { height: 15px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  [style*="animation: eq"] { animation: none !important; }
-}
-
-/* Sections are delineated by a hairline in both themes, never by an inverted
-   block — so light mode goes fully light and dark mode goes fully dark. */
+/* Panels — transparent surface with hairline top */
 .panel {
   background-color: transparent;
-  border-top: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent);
+  border-top: 1px solid var(--c-border);
+  opacity: 0.7;
 }
 .panel + .panel {
   border-top: 0;
 }
 
-/* Nav entrance is pure CSS so the bar can never be left off-screen by a
-   JS error or a slow hydration. GSAP takes over on first scroll. */
-@keyframes navIn {
-  from { transform: translateY(-100%); }
-  to   { transform: translateY(0); }
+/* Section padding — generous, not cramped */
+.section {
+  padding-top: var(--pad);
+  padding-bottom: var(--pad);
 }
-.nav-in {
-  animation: navIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.2s both;
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 2px;
 }
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .nav-in { animation: none; transform: none; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Smooth page transitions between themes */
+html {
+  transition: background-color 0.4s ease;
 }

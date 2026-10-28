@@ -1,7 +1,5 @@
 import { lazy, Suspense } from "react";
 import SmoothScroll from "./components/providers/SmoothScroll";
-import Preloader from "./components/ui/Preloader";
-import Cursor from "./components/ui/Cursor";
 import Nav from "./components/ui/Nav";
 import Hero from "./components/sections/Hero";
 import Marquee from "./components/ui/Marquee";
@@ -23,24 +21,21 @@ export default function App() {
     <>
       <a
         href="#top"
-        className="absolute -top-12 left-4 z-[1000] bg-ink text-bone px-4 py-2 rounded transform -translate-y-full transition-transform duration-200 focus:translate-y-0 focus:outline-none"
+        className="absolute -top-12 left-4 z-[1000] bg-fg text-bg px-3 py-1.5 rounded-full text-xs font-medium transition-transform duration-200 focus:translate-y-0 focus:outline-none"
       >
         Skip to content
       </a>
 
-      {/* SmoothScroll mounts first so Lenis exists before Preloader locks it */}
       <SmoothScroll />
-      <Preloader />
-      <Cursor />
       <Nav />
 
       <main>
         <Hero />
 
-        <div className="border-y border-ink/15 py-4">
+        <div className="border-y border-fg/10 py-3">
           <Marquee
             text="Frontend Developer — React & Tailwind — Freelance — Nagpur —"
-            speed={70}
+            speed={50}
           />
         </div>
 
@@ -51,10 +46,10 @@ export default function App() {
           <Experience />
           <Testimonials />
 
-          <div className="band border-y border-ink/15 bg-bone py-4">
+          <div className="band border-y border-fg/10 bg-surface py-3">
             <Marquee
               text="Available for work — React & Tailwind — Nagpur, India —"
-              speed={55}
+              speed={45}
               direction={-1}
             />
           </div>

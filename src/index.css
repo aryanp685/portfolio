@@ -15,10 +15,10 @@
 }
 
 :root {
-  /* light (default) */
-  --c-bone: #efebe4;
+  /* light (default) — warm off-white surface, near-black ink */
+  --c-bone: #f4f1ec;
   --c-ink: #0b0b0b;
-  --c-dust: #6b665e;
+  --c-dust: #6e665e;
   --c-accent: #c7452b;
   /* Panels share the page surface in BOTH themes, so every section follows
      the toggle. They are separated by hairlines, not by inverted blocks. */
@@ -33,11 +33,12 @@
   --pad: clamp(1.25rem, 4vw, 4.5rem);
 }
 
-/* Dark mode: background black, text white. Only these four tokens flip —
-   the panel tokens above are var() references, so they follow automatically. */
+/* Dark mode: near-black surface, warm off-white ink. Only these four tokens
+   flip — the panel tokens above are var() references, so they follow
+   automatically. Symmetrical with light mode (bone ↔ ink). */
 :root.dark {
-  --c-bone: #0a0a0a;
-  --c-ink: #f2eee7;
+  --c-bone: #090909;
+  --c-ink: #f4f1ec;
   --c-dust: #8a857d;
   --c-accent: #e0654a;
 }

@@ -31,11 +31,13 @@ export default function Cursor() {
     const leave = () => setVisible(false);
 
     window.addEventListener("pointermove", move, { passive: true });
-    document.addEventListener("pointerleave", leave);
+    window.addEventListener("pointerout", (e) => {
+      if (!e.relatedTarget) leave();
+    });
     return () => {
       document.documentElement.classList.remove("has-cursor");
       window.removeEventListener("pointermove", move);
-      document.removeEventListener("pointerleave", leave);
+      window.removeEventListener("pointerout", leave);
     };
   }, []);
 

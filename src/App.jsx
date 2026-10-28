@@ -21,6 +21,13 @@ const Hold = () => <div className="min-h-[60vh]" aria-hidden />;
 export default function App() {
   return (
     <>
+      <a
+        href="#top"
+        className="absolute -top-12 left-4 z-[1000] bg-ink text-bone px-4 py-2 rounded transform -translate-y-full transition-transform duration-200 focus:translate-y-0 focus:outline-none"
+      >
+        Skip to content
+      </a>
+
       {/* SmoothScroll mounts first so Lenis exists before Preloader locks it */}
       <SmoothScroll />
       <Preloader />

@@ -57,7 +57,7 @@ export default function Experience() {
   }, []);
 
   return (
-    <section ref={root} id="experience" className="cv-auto relative px-[var(--pad)] py-24 md:py-40">
+    <section ref={root} id="experience" className="relative px-[var(--pad)] py-24 md:py-40">
       <div className="mb-14 flex items-center gap-6 md:mb-24">
         <span className="meta shrink-0 text-dust">(04) — Experience</span>
         <span className="rule" />

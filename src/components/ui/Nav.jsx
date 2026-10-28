@@ -82,9 +82,9 @@ export default function Nav() {
 
       <header
         ref={root}
-        className="nav-in fixed inset-x-0 top-0 z-[500] mix-blend-difference"
+        className="nav-in fixed inset-x-0 top-0 z-[500] bg-bone/95 backdrop-blur-md border-b border-ink/10"
       >
-        <nav className="flex items-center justify-between px-[var(--pad)] py-5 text-white">
+        <nav className="flex items-center justify-between px-[var(--pad)] py-5 text-ink">
           <a href="#top" className="meta" data-cursor="link">
             Aryan Patil
             <span className="ml-2 opacity-50">©26</span>
@@ -96,7 +96,7 @@ export default function Nav() {
                 <Magnetic strength={0.5}>
                   <a href={l.href} data-cursor="link" className="group meta relative block py-1">
                     {l.label}
-                    <span className="absolute -bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-white transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
+                    <span className="absolute -bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-ink transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
                   </a>
                 </Magnetic>
               </li>

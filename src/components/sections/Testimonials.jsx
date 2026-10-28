@@ -55,7 +55,7 @@ export default function Testimonials() {
     <section
       ref={root}
       id="testimonials"
-      className="relative overflow-hidden bg-noir panel py-24 text-onnoir md:py-32 lg:h-screen lg:py-0"
+      className="relative overflow-hidden bg-noir panel py-24 text-onnoir md:py-32"
     >
       <div className="flex h-full flex-col justify-center px-[var(--pad)]">
         <div className="mb-12 flex items-center gap-6 md:mb-16">
@@ -73,7 +73,7 @@ export default function Testimonials() {
 
         <div
           ref={track}
-          className="flex w-max gap-6 will-change-transform md:gap-10 max-lg:w-full max-lg:flex-col"
+          className="flex flex-col w-full gap-6 will-change-transform lg:flex-row lg:w-max lg:gap-10"
         >
           {TESTIMONIALS.map((t, i) => (
             <figure

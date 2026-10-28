@@ -36,6 +36,15 @@ export default function SmoothScroll() {
     };
     document.addEventListener("click", onClick);
 
+    if (window.location.hash) {
+      const el = document.querySelector(window.location.hash);
+      if (el) {
+        requestAnimationFrame(() => {
+          lenis.scrollTo(el, { offset: 0, duration: 1.4 });
+        });
+      }
+    }
+
     return () => {
       document.removeEventListener("click", onClick);
       gsap.ticker.remove(tick);

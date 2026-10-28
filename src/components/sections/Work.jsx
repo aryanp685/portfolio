@@ -101,7 +101,7 @@ export default function Work() {
 
             <div
               className={`relative z-10 grid grid-cols-1 items-end gap-8 md:grid-cols-12 md:gap-12 ${
-                i % 2 ? "md:[direction:rtl]" : ""
+                i % 2 ? "md:grid-cols-12 md:items-start" : ""
               }`}
             >
               {/* media */}

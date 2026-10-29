@@ -83,13 +83,11 @@ export default function Experience() {
       {/* headline stats */}
       <div
         data-stats
-        className="mt-20 grid grid-cols-2 gap-4 border-t border-border pt-8 md:mt-24 md:grid-cols-4"
+        className="mt-20 grid grid-cols-2 gap-4 border-t border-border pt-8 md:mt-24 md:grid-cols-2"
       >
         {[
           { v: PROFILE.experience, l: "Year Experience" },
-          { v: "10+", l: "Technologies" },
-          { v: "4", l: "Happy Clients" },
-          { v: "100%", l: "Responsive" },
+          { v: STACK.length.toString(), l: "Technologies" },
         ].map((s) => (
           <div key={s.l} className="py-4 pr-6">
             <span className="text-2xl font-semibold tracking-tight">{s.v}</span>

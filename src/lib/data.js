@@ -2,7 +2,7 @@
 
 export const PROFILE = {
   name: "Aryan Patil",
-  role: "Frontend Developer",
+  role: "React Developer",
   tagline: "React & Tailwind",
   location: "Nagpur, Maharashtra, India",
   email: "aryanpatil2006@gmail.com",
@@ -24,10 +24,7 @@ export const STACK = [
   { name: "HTML & CSS", note: "Semantic markup, modern layout", kind: "Foundation" },
   { name: "Vite", note: "Fast builds, HMR, bundling", kind: "Tooling" },
   { name: "Git & GitHub", note: "Version control, branching, deploys", kind: "Tooling" },
-  { name: "Flutter", note: "Cross-platform mobile apps in Dart", kind: "Mobile" },
-  { name: "Firebase", note: "Auth, Firestore, hosting", kind: "Backend" },
   { name: "Responsive Design", note: "Mobile-first across every breakpoint", kind: "Craft" },
-  { name: "AI-Assisted Development", note: "Ship fast without cutting corners", kind: "Workflow" },
 ];
 
 export const PROJECTS = [
@@ -85,50 +82,18 @@ export const PROJECTS = [
 ];
 
 export const VALUES = [
-  { title: "Clean Code", desc: "Maintainable and scalable code that stands the test of time." },
-  { title: "Performance", desc: "Optimizing for speed and lightning-fast user experiences." },
-  { title: "Collaboration", desc: "Working closely with teams to bring ideas to life." },
-  { title: "Innovation", desc: "Staying ahead with the latest technologies and best practices." },
+  { title: "Clean Code", desc: "Maintainable and scalable code." },
+  { title: "Performance", desc: "Fast-loading, responsive websites." },
+  { title: "Collaboration", desc: "Working closely with clients." },
 ];
 
 export const EXPERIENCE = [
   {
     period: "2024 — Present",
-    role: "Freelance Web Developer",
-    company: "Self-Employed",
-    desc: "Designing and building small business websites and landing pages with React, Tailwind CSS and AI-assisted workflows. Handling everything myself — client requirements, design, code and deployment.",
-    tech: ["React", "Tailwind CSS", "JavaScript", "Git & GitHub", "AI Tools"],
-  },
-];
-
-export const TESTIMONIALS = [
-  {
-    quote:
-      "Aryan built our shop's website exactly the way we imagined it. He explained everything in simple language and delivered on time.",
-    initials: "RD",
-    name: "Rohan Deshmukh",
-    title: "Owner, Deshmukh Traders",
-  },
-  {
-    quote:
-      "Our boutique's landing page looks premium and loads fast. We started getting customer enquiries from the very first week.",
-    initials: "PK",
-    name: "Priya Kulkarni",
-    title: "Founder, Bloom Boutique",
-  },
-  {
-    quote:
-      "He rebuilt our cafe's menu site and made it work beautifully on phones. Communication was smooth from day one.",
-    initials: "SM",
-    name: "Sagar Meshram",
-    title: "Owner, Brew & Bytes Cafe",
-  },
-  {
-    quote:
-      "A patient and professional developer. He handled everything — design, website and deployment — and even taught us how to update it ourselves.",
-    initials: "AW",
-    name: "Anjali Wankhede",
-    title: "Director, Bright Steps Tutorials",
+    role: "React Developer",
+    company: "Freelance",
+    desc: "Building small business websites and landing pages with React, Tailwind CSS and JavaScript. Handling client requirements, UI development, code and deployment.",
+    tech: ["React", "Tailwind CSS", "JavaScript", "Git & GitHub"],
   },
 ];
 

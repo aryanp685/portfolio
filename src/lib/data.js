@@ -96,3 +96,6 @@ export const EXPERIENCE = [
 ];
 
 export const REPOS_URL = "https://github.com/aryanp685?tab=repositories";
+
+export const CONTACT_FORM_ACTION =
+  "https://formspree.io/f/YOUR_FORM_ID"; // Replace with your Formspree endpoint

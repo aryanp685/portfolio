@@ -6,7 +6,6 @@ const WORDS = ["Let's", "Build", "Something", "Great."];
 
 const LINKS = [
   { label: "Email", value: PROFILE.email, href: `mailto:${PROFILE.email}` },
-  { label: "Phone", value: PROFILE.phone, href: PROFILE.phoneHref },
   { label: "GitHub", value: PROFILE.githubHandle, href: PROFILE.github },
   { label: "LinkedIn", value: PROFILE.linkedinHandle, href: PROFILE.linkedin },
 ];
@@ -46,8 +45,8 @@ export default function Contact() {
       <h2 className="tracking-tighter">{WORDS.join(" ")}</h2>
 
       <p className="mt-8 max-w-[56ch] text-lg leading-relaxed text-fg/90 md:text-xl">
-        Have a project in mind, a role to discuss, or just want to say hi? Your message lands
-        straight in my inbox.
+        Have a project in mind, a role to discuss, or just want to say hi? Your
+        message lands straight in my inbox.
       </p>
 
       <div data-links className="mt-16 grid grid-cols-1 gap-6 md:mt-24">

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap, initGsap, EASE, reduced } from "../../lib/anim";
-import { EXPERIENCE, PROFILE, STACK } from "../../lib/data";
+import { EXPERIENCE, PROFILE } from "../../lib/data";
 
 export default function Experience() {
   const root = useRef(null);
@@ -24,19 +24,6 @@ export default function Experience() {
           }
         );
       });
-
-      gsap.fromTo(
-        "[data-stat]",
-        { y: 20, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: EASE.out,
-          stagger: 0.1,
-          scrollTrigger: { trigger: "[data-stats]", start: "top 88%" },
-        }
-      );
     }, root);
     return () => ctx.revert();
   }, []);
@@ -48,7 +35,9 @@ export default function Experience() {
         <span className="rule" />
       </div>
 
-      <h2 className="mb-16 max-w-[12ch] md:mb-28">Experience that speaks volumes.</h2>
+      <h2 className="mb-16 max-w-[12ch] md:mb-28">
+        Experience that speaks volumes.
+      </h2>
 
       <div data-timeline className="relative pl-6 md:pl-10">
         {EXPERIENCE.map((e) => (
@@ -60,10 +49,16 @@ export default function Experience() {
             />
 
             <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-10">
-              <p data-exp-item className="meta md:col-span-3">{e.period}</p>
+              <p data-exp-item className="meta md:col-span-3">
+                {e.period}
+              </p>
               <div className="md:col-span-9">
-                <h3 data-exp-item className="text-2xl font-semibold leading-none">{e.role}</h3>
-                <p data-exp-item className="meta mt-2 text-accent">{e.company}</p>
+                <h3 data-exp-item className="text-2xl font-semibold leading-none">
+                  {e.role}
+                </h3>
+                <p data-exp-item className="meta mt-2 text-accent">
+                  {e.company}
+                </p>
                 <p data-exp-item className="mt-4 max-w-[60ch] text-lg leading-relaxed text-fg/90">
                   {e.desc}
                 </p>
@@ -76,22 +71,6 @@ export default function Experience() {
                 </ul>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      {/* headline stats */}
-      <div
-        data-stats
-        className="mt-20 grid grid-cols-2 gap-4 border-t border-border pt-8 md:mt-24 md:grid-cols-2"
-      >
-        {[
-          { v: PROFILE.experience, l: "Year Experience" },
-          { v: STACK.length.toString(), l: "Technologies" },
-        ].map((s) => (
-          <div key={s.l} className="py-4 pr-6">
-            <span className="text-2xl font-semibold tracking-tight">{s.v}</span>
-            <p className="meta mt-1">{s.l}</p>
           </div>
         ))}
       </div>

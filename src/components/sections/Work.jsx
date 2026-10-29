@@ -36,17 +36,12 @@ export default function Work() {
       <div className="space-y-24 md:space-y-40">
         {PROJECTS.map((p, i) => (
           <article key={p.n} data-project className="relative group">
-            <div
-              className={`relative z-10 grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-12 ${
-                i % 2 ? "md:grid-cols-12 md:items-start" : ""
-              }`}
-            >
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
               {/* media */}
               <a
                 href={p.href}
                 target="_blank"
                 rel="noreferrer"
-                data-cursor="view"
                 className="relative col-span-1 block aspect-[4/3] overflow-hidden rounded-[var(--radius)] bg-surface md:col-span-7"
               >
                 <img

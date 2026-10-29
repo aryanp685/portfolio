@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "-apple-system", "BlinkMacSystemFont", "SF Pro Display", "SF Pro Text",
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: "-apple-system", "BlinkMacSystemFont", "SF Pro Display",
+    "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: "SF Mono", "Menlo", "Monaco", "Consolas", monospace;
 }
 
@@ -24,11 +24,11 @@
   --surface: var(--c-surface);
   --border: var(--c-border);
 
-  --fs-mega: clamp(3rem, 8vw, 5rem);
-  --fs-huge: clamp(2rem, 5vw, 3.5rem);
-  --fs-big: clamp(1.5rem, 3vw, 2.5rem);
+  --fs-mega: clamp(3rem, 9vw, 6rem);
+  --fs-huge: clamp(2.25rem, 5vw, 4rem);
+  --fs-big: clamp(1.5rem, 3vw, 2.75rem);
   --fs-mid: clamp(1.125rem, 2vw, 1.75rem);
-  --pad: clamp(1.5rem, 5vw, 4.5rem);
+  --pad: clamp(1.75rem, 6vw, 5rem);
   --radius: 24px;
 }
 
@@ -144,7 +144,6 @@ a {
 .panel {
   background-color: transparent;
   border-top: 1px solid var(--c-border);
-  opacity: 0.7;
 }
 .panel + .panel {
   border-top: 0;
@@ -174,7 +173,35 @@ a {
   }
 }
 
-/* Smooth page transitions between themes */
+/* Smooth theme transitions */
 html {
   transition: background-color 0.4s ease;
+}
+
+/* Split-text primitives */
+.char,
+.word {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Hide native cursor only when custom cursor is active */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--c-bg);
+  color: var(--c-fg);
+  padding: 0.5rem 1rem;
+  z-index: 10000;
+  transition: top 0.2s;
+}
+.skip-link:focus {
+  top: 0;
 }

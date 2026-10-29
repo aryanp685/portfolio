@@ -8,12 +8,14 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative section bg-surface text-fg">
+    <footer className="relative section">
       <div className="rule mb-8" />
       <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-xl font-semibold">{PROFILE.name}</p>
-          <p className="meta mt-1">{PROFILE.role} — {PROFILE.location}</p>
+          <p className="meta mt-1">
+            {PROFILE.role} — {PROFILE.location}
+          </p>
         </div>
 
         <nav className="flex gap-8">

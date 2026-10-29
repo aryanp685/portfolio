@@ -13,11 +13,11 @@ export default function Hero() {
         return;
       }
 
-      const tl = gsap.timeline({ delay: 0.4 });
+      const tl = gsap.timeline({ delay: 0.3 });
       tl.fromTo(
         "[data-hero-fade]",
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.8, ease: EASE.soft, stagger: 0.1 }
+        { opacity: 1, y: 0, duration: 0.8, ease: EASE.soft, stagger: 0.12 }
       );
     }, root);
     return () => ctx.revert();
@@ -27,20 +27,22 @@ export default function Hero() {
     <section
       ref={root}
       id="top"
-      className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden px-[var(--pad)] pb-12 pt-20 md:pt-32 md:pb-20"
+      className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden px-[var(--pad)] pb-16 pt-24 md:pt-36 md:pb-24"
     >
       {/* top meta row */}
       <div className="flex items-start justify-between" data-hero-fade>
-        <p className="meta max-w-[20ch]">
+        <p className="meta max-w-[22ch]">
           {PROFILE.role}
           <br />
           {PROFILE.tagline}
         </p>
-        <p className="meta hidden text-dust md:block">Portfolio — 2026</p>
+        <p className="meta hidden text-dust md:block">
+          Portfolio · 2026
+        </p>
       </div>
 
-      {/* the lockup — clean centered typography */}
-      <div data-hero-inner className="relative flex-1 flex flex-col justify-center py-8">
+      {/* lockup — clean centered typography */}
+      <div className="relative flex-1 flex flex-col justify-center py-8">
         <h1 className="text-center tracking-tighter" data-hero-fade>
           {PROFILE.role}
         </h1>
@@ -63,8 +65,9 @@ export default function Hero() {
 
       {/* bottom row */}
       <div className="flex items-end justify-between" data-hero-fade>
-        <p className="meta max-w-[26ch] leading-relaxed">
-          Freelance developer from Nagpur building fast, responsive websites clients love.
+        <p className="meta max-w-[28ch] leading-relaxed">
+          Freelance developer from Nagpur building fast, responsive websites
+          clients love.
         </p>
         <div className="flex flex-col items-center gap-2">
           <span className="meta">Scroll</span>

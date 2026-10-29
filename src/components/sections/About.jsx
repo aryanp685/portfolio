@@ -128,7 +128,7 @@ export default function About() {
           <div className="mt-4 flex items-baseline justify-between">
             <p className="meta text-dustnoir">{PROFILE.name}</p>
             <p className="meta text-dustnoir">
-              {PROFILE.experience} Year Exp.
+              {PROFILE.experience} years exp.
             </p>
           </div>
         </div>
@@ -146,7 +146,7 @@ export default function About() {
           <div data-about-copy className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 md:mt-20">
             <div className="space-y-5">
               <p className="max-w-[46ch] text-base leading-relaxed text-onnoir/70 md:text-lg">
-                I&apos;m a frontend developer from Nagpur with {PROFILE.experience} year of
+                I'm a frontend developer from Nagpur with {PROFILE.experience} years of
                 freelancing experience. My journey started during my BCA with a simple curiosity
                 for how things work on the web, and it quickly turned into building real websites
                 for real clients.

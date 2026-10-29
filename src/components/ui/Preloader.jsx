@@ -64,7 +64,7 @@ export default function Preloader() {
   return (
     <div
       ref={root}
-      className="fixed inset-0 z-[900] flex flex-col justify-end bg-[#080808] px-[var(--pad)] pb-[var(--pad)] text-[#efebe4]"
+      className="fixed inset-0 z-[900] flex flex-col justify-end bg-ink px-[var(--pad)] pb-[var(--pad)] text-bone"
       style={{ clipPath: "inset(0% 0% 0% 0%)" }}
     >
       {/* handwritten hello, centred */}
@@ -87,7 +87,7 @@ export default function Preloader() {
             style={{
               fontSize: 168,
               fill: "none",
-              stroke: "#efebe4",
+              stroke: "currentColor",
               strokeWidth: 2,
               strokeDasharray: 1400,
             }}
@@ -100,7 +100,7 @@ export default function Preloader() {
             y="150"
             textAnchor="middle"
             className="font-hand"
-            style={{ fontSize: 168, fill: "#efebe4", opacity: 0 }}
+            style={{ fontSize: 168, fill: "currentColor", opacity: 0 }}
           >
             hello
           </text>
@@ -113,7 +113,7 @@ export default function Preloader() {
           {String(n).padStart(3, "0")}
         </span>
       </div>
-      <div data-pre-line className="mt-6 h-px w-full origin-left scale-x-0 bg-[#efebe4]/40" />
+      <div data-pre-line className="mt-6 h-px w-full origin-left scale-x-0 bg-bone/40" />
     </div>
   );
 }

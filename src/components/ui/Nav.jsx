@@ -82,7 +82,7 @@ export default function Nav() {
 
       <header
         ref={root}
-        className="nav-in fixed inset-x-0 top-0 z-[500] mix-blend-difference"
+        className="nav-in fixed inset-x-0 top-0 z-[500] bg-bg/80 backdrop-blur-md border-b border-ink/10"
       >
         <nav className="flex items-center justify-between px-[var(--pad)] py-5 text-ink">
           <a href="#top" className="meta" data-cursor="link">

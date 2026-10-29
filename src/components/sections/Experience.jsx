@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap, initGsap, EASE, reduced } from "../../lib/anim";
-import { EXPERIENCE, PROFILE } from "../../lib/data";
+import { EXPERIENCE, PROFILE, STACK } from "../../lib/data";
 
 export default function Experience() {
   const root = useRef(null);

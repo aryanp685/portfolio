@@ -19,6 +19,11 @@
   --c-on-noir: var(--c-fg);
   --c-dust-on-noir: var(--c-muted);
 
+  --fg: var(--c-fg);
+  --bg: var(--c-bg);
+  --surface: var(--c-surface);
+  --border: var(--c-border);
+
   --fs-mega: clamp(3rem, 8vw, 5rem);
   --fs-huge: clamp(2rem, 5vw, 3.5rem);
   --fs-big: clamp(1.5rem, 3vw, 2.5rem);
@@ -36,6 +41,11 @@
   --c-surface: #1c1c1e;
   --c-accent: #0a84ff;
   --c-accent-hover: #3a92ff;
+
+  --fg: var(--c-fg);
+  --bg: var(--c-bg);
+  --surface: var(--c-surface);
+  --border: var(--c-border);
 }
 
 html {

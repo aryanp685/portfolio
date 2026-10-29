@@ -96,7 +96,7 @@ export default function Nav() {
                 <Magnetic strength={0.5}>
                   <a href={l.href} data-cursor="link" className="group meta relative block py-1">
                     {l.label}
-                    <span className="absolute -bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-white transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
+                    <span className="absolute -bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
                   </a>
                 </Magnetic>
               </li>

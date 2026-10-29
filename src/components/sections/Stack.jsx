@@ -89,7 +89,7 @@ export default function Stack() {
         className="pointer-events-none fixed left-0 top-0 z-[400] hidden max-w-[24ch] lg:block"
         style={{ opacity: active ? 1 : 0, transition: "opacity .35s ease" }}
       >
-        <div className="bg-accent px-4 py-2 text-white">
+        <div className="bg-accent px-4 py-2 text-ink">
           <p className="meta">{active?.note}</p>
         </div>
       </div>

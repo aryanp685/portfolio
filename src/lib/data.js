@@ -2,7 +2,7 @@
 
 export const PROFILE = {
   name: "Aryan Patil",
-  role: "Frontend Developer",
+  role: "React Developer",
   tagline: "React & Tailwind",
   location: "Nagpur, Maharashtra, India",
   email: "aryanpatil2006@gmail.com",
@@ -24,8 +24,6 @@ export const STACK = [
   { name: "HTML & CSS", note: "Semantic markup, modern layout", kind: "Foundation" },
   { name: "Vite", note: "Fast builds, HMR, bundling", kind: "Tooling" },
   { name: "Git & GitHub", note: "Version control, branching, deploys", kind: "Tooling" },
-  { name: "Flutter", note: "Cross-platform mobile apps in Dart", kind: "Mobile" },
-  { name: "Firebase", note: "Auth, Firestore, hosting", kind: "Backend" },
   { name: "Responsive Design", note: "Mobile-first across every breakpoint", kind: "Craft" },
 ];
 
@@ -92,10 +90,10 @@ export const VALUES = [
 export const EXPERIENCE = [
   {
     period: "2024 — Present",
-    role: "Freelance Web Developer",
-    company: "Self-Employed",
-    desc: "Designing and building small business websites and landing pages with React, Tailwind CSS and AI-assisted workflows. Handling everything myself — client requirements, design, code and deployment.",
-    tech: ["React", "Tailwind CSS", "JavaScript", "Git & GitHub", "AI Tools"],
+    role: "React Developer",
+    company: "Freelance",
+    desc: "Building small business websites and landing pages with React, Tailwind CSS and JavaScript. Handling client requirements, UI development, code and deployment.",
+    tech: ["React", "Tailwind CSS", "JavaScript", "Git & GitHub"],
   },
 ];
 

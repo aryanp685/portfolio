@@ -84,13 +84,14 @@ export default function About() {
           <div data-about-copy className="mt-12 grid grid-cols-1 gap-10 md:mt-20">
             <div className="space-y-6">
               <p className="max-w-[48ch] text-lg leading-relaxed text-fg/90">
-                I&apos;m a frontend developer from Nagpur with {PROFILE.experience} year of
-                freelancing experience. My journey started with a simple curiosity for how things
-                work on the web, and it turned into building real websites for real clients.
+                I&apos;m a React developer from Nagpur building clean, fast websites. I specialize in
+                React, JavaScript and Tailwind CSS — turning ideas into real, working websites for
+                clients.
               </p>
               <p className="max-w-[48ch] text-lg leading-relaxed text-fg/90">
-                I specialize in React, JavaScript and Tailwind CSS — from clean landing pages to
-                fully responsive business websites.
+                My focus is on writing clean, maintainable React code that performs well and is easy
+                to update. I use modern tools to ship efficiently while keeping the codebase simple
+                and understandable.
               </p>
             </div>
             <div className="space-y-8">

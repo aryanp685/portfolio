@@ -1,0 +1,209 @@
+@import "tailwindcss";
+@import "./fonts.css";
+
+@theme {
+  --color-bone: var(--c-bone);
+  --color-ink: var(--c-ink);
+  --color-noir: var(--c-noir);
+  --color-dust: var(--c-dust);
+  --color-accent: var(--c-accent);
+  --color-onnoir: var(--c-on-noir);
+  --color-dustnoir: var(--c-dust-on-noir);
+  --font-display: "Anton", "Arial Narrow", Impact, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-hand: "Caveat", "Segoe Script", cursive;
+}
+
+:root {
+  /* light (default) */
+  --c-bone: #efebe4;
+  --c-ink: #0b0b0b;
+  --c-dust: #6b665e;
+  --c-accent: #c7452b;
+  /* Panels share the page surface in BOTH themes, so every section follows
+     the toggle. They are separated by hairlines, not by inverted blocks. */
+  --c-noir: var(--c-bone);
+  --c-on-noir: var(--c-ink);
+  --c-dust-on-noir: var(--c-dust);
+
+  --fs-mega: clamp(3.4rem, 19vw, 21rem);
+  --fs-huge: clamp(2.6rem, 11vw, 11rem);
+  --fs-big: clamp(1.9rem, 5.4vw, 5.2rem);
+  --fs-mid: clamp(1.4rem, 2.6vw, 2.6rem);
+  --pad: clamp(1.25rem, 4vw, 4.5rem);
+}
+
+/* Dark mode: background black, text white. Only these four tokens flip —
+   the panel tokens above are var() references, so they follow automatically. */
+:root.dark {
+  --c-bone: #0a0a0a;
+  --c-ink: #f2eee7;
+  --c-dust: #8a857d;
+  --c-accent: #e0654a;
+}
+
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  transition: background-color 0.6s ease, color 0.6s ease;
+  overflow-x: clip;
+  background: var(--color-bone);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-bone);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.82;
+  text-transform: uppercase;
+}
+
+/* label / meta micro-type */
+.meta {
+  font-size: clamp(0.58rem, 0.72vw, 0.72rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* split-text primitives ---------------------------------------- */
+.line-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+.char,
+.word {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* hide native cursor only when custom cursor is active ---------- */
+html.has-cursor,
+html.has-cursor * {
+  cursor: none !important;
+}
+
+/* hairlines ------------------------------------------------------ */
+.rule {
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  opacity: 0.18;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* premium finish ------------------------------------------------ */
+.text-balance { text-wrap: balance; }
+.text-pretty  { text-wrap: pretty; }
+
+/* fine film grain over the whole page, GPU-cheap and non-blocking */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 800;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23n)'/%3E%3C/svg%3E");
+  will-change: transform;
+  animation: grain 8s steps(6) infinite;
+}
+@keyframes grain {
+  0%,100% { transform: translate(0,0); }
+  20%  { transform: translate(-3%, 2%); }
+  40%  { transform: translate(2%, -3%); }
+  60%  { transform: translate(-2%, -2%); }
+  80%  { transform: translate(3%, 1%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .grain::after { animation: none; }
+}
+
+/* skip offscreen paint work on tall sections */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* focus ring that matches the editorial language */
+:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 4px;
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+@keyframes eq {
+  0%, 100% { height: 4px; }
+  50%      { height: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [style*="animation: eq"] { animation: none !important; }
+}
+
+/* Sections are delineated by a hairline in both themes, never by an inverted
+   block — so light mode goes fully light and dark mode goes fully dark. */
+.panel {
+  background-color: transparent;
+  border-top: 1px solid color-mix(in oklab, var(--color-ink) 12%, transparent);
+}
+.panel + .panel {
+  border-top: 0;
+}
+
+/* Nav entrance is pure CSS so the bar can never be left off-screen by a
+   JS error or a slow hydration. GSAP takes over on first scroll. */
+@keyframes navIn {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+.nav-in {
+  animation: navIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 2.2s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-in { animation: none; transform: none; }
+}

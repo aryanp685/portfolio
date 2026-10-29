@@ -84,7 +84,7 @@ export default function Nav() {
         ref={root}
         className="nav-in fixed inset-x-0 top-0 z-[500] mix-blend-difference"
       >
-        <nav className="flex items-center justify-between px-[var(--pad)] py-5 text-white">
+        <nav className="flex items-center justify-between px-[var(--pad)] py-5 text-ink">
           <a href="#top" className="meta" data-cursor="link">
             Aryan Patil
             <span className="ml-2 opacity-50">©26</span>

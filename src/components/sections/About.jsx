@@ -152,9 +152,8 @@ export default function About() {
                 for real clients.
               </p>
               <p className="max-w-[46ch] text-base leading-relaxed text-onnoir/70 md:text-lg">
-                I specialize in React, JavaScript and Tailwind CSS, using AI-assisted workflows to
-                move fast without cutting corners — from clean landing pages to fully responsive
-                business websites.
+                I specialize in React, JavaScript and Tailwind CSS — from clean landing pages to fully
+                responsive business websites.
               </p>
             </div>
             <div className="space-y-6">

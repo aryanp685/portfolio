@@ -3,7 +3,6 @@ import { gsap, initGsap, EASE, reduced } from "../../lib/anim";
 import { PROJECTS, REPOS_URL } from "../../lib/data";
 import { BLUR } from "../../lib/blur";
 
-
 export default function Work() {
   const root = useRef(null);
 
@@ -18,7 +17,6 @@ export default function Work() {
         const num = card.querySelector("[data-num]");
         const copy = card.querySelectorAll("[data-copy] > *");
 
-        // clip-path + blur→sharp reveal
         gsap.fromTo(
           media,
           { clipPath: "inset(0% 0% 100% 0%)" },
@@ -27,7 +25,7 @@ export default function Work() {
             duration: 1.2,
             ease: EASE.out,
             scrollTrigger: { trigger: card, start: "top 78%" },
-          },
+          }
         );
         gsap.fromTo(
           img,
@@ -38,17 +36,15 @@ export default function Work() {
             duration: 1.4,
             ease: EASE.out,
             scrollTrigger: { trigger: card, start: "top 78%" },
-          },
+          }
         );
 
-        // continuous parallax inside the frame
         gsap.to(img, {
           yPercent: 10,
           ease: "none",
           scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: 1 },
         });
 
-        // oversized numeral drifts horizontally
         gsap.fromTo(
           num,
           { xPercent: -6 },
@@ -56,7 +52,7 @@ export default function Work() {
             xPercent: 6,
             ease: "none",
             scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: 1 },
-          },
+          }
         );
 
         gsap.fromTo(
@@ -69,7 +65,7 @@ export default function Work() {
             ease: EASE.soft,
             stagger: 0.09,
             scrollTrigger: { trigger: card, start: "top 72%" },
-          },
+          }
         );
       });
     }, root);
@@ -87,11 +83,10 @@ export default function Work() {
       <div className="space-y-28 md:space-y-52">
         {PROJECTS.map((p, i) => (
           <article key={p.n} data-project className="relative">
-            {/* oversized cropped numeral */}
             <span
               data-num
               aria-hidden
-              className={`font-display pointer-events-none absolute -top-[0.22em] z-0 select-none leading-none text-ink/8 ${
+              className={`font-display pointer-events-none absolute -top-[0.22em] z-0 select-none leading-none text-dust/10 ${
                 i % 2 ? "right-[-6vw]" : "left-[-6vw]"
               }`}
               style={{ fontSize: "clamp(9rem, 30vw, 30rem)" }}
@@ -104,14 +99,13 @@ export default function Work() {
                 i % 2 ? "md:[direction:rtl]" : ""
               }`}
             >
-              {/* media */}
               <a
-                href={p.href}
+                href={p.live || p.href}
                 target="_blank"
                 rel="noreferrer"
                 data-cursor="view"
                 data-media
-                className="group relative col-span-1 block aspect-16/10 overflow-hidden bg-ink/5 md:col-span-8 [direction:ltr]"
+                className="group relative col-span-1 block aspect-16/10 overflow-hidden bg-bone/5 md:col-span-8 [direction:ltr]"
               >
                 <img
                   src={p.img}
@@ -125,7 +119,6 @@ export default function Work() {
                 />
               </a>
 
-              {/* copy */}
               <div data-copy className="col-span-1 md:col-span-4 [direction:ltr]">
                 <p className="meta mb-3 text-dust">{p.sub}</p>
                 <h3
@@ -134,9 +127,7 @@ export default function Work() {
                 >
                   {p.title}
                 </h3>
-                <p className="mb-6 max-w-[42ch] text-sm leading-relaxed text-ink/65 md:text-base">
-                  {p.desc}
-                </p>
+                <p className="mb-6 max-w-[42ch] text-dust/70 md:text-base">{p.desc}</p>
                 <ul className="mb-6 flex flex-wrap gap-x-4 gap-y-2">
                   {p.tech.map((t) => (
                     <li key={t} className="meta text-dust">
@@ -144,17 +135,44 @@ export default function Work() {
                     </li>
                   ))}
                 </ul>
-                <div className="flex items-center justify-between border-t border-ink/15 pt-4">
-                  <a
-                    href={p.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    data-cursor="link"
-                    className="group meta relative inline-block py-1"
-                  >
-                    View on GitHub
-                    <span className="absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-ink transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
-                  </a>
+                <div className="flex items-center justify-between border-t border-dust/20 pt-4">
+                  <div className="flex gap-3">
+                    {p.live ? (
+                      <>
+                        <a
+                          href={p.live}
+                          target="_blank"
+                          rel="noreferrer"
+                          data-cursor="link"
+                          className="group meta relative inline-block py-1"
+                        >
+                          Live Demo
+                          <span className="absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
+                        </a>
+                        <a
+                          href={p.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          data-cursor="link"
+                          className="group meta relative inline-block py-1 ml-3"
+                        >
+                          GitHub
+                          <span className="absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
+                        </a>
+                      </>
+                    ) : (
+                      <a
+                        href={p.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        data-cursor="link"
+                        className="group meta relative inline-block py-1"
+                      >
+                        View on GitHub
+                        <span className="absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
+                      </a>
+                    )}
+                  </div>
                   <span className="meta text-dust">{p.updated}</span>
                 </div>
               </div>
@@ -172,7 +190,7 @@ export default function Work() {
           className="group meta relative inline-block py-2"
         >
           View all on GitHub
-          <span className="absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-ink transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
+          <span className="absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:origin-left group-hover:scale-x-100" />
         </a>
       </div>
     </section>

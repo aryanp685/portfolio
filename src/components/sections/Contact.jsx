@@ -7,7 +7,6 @@ const WORDS = ["Let's", "Build", "Something", "Great."];
 
 const LINKS = [
   { label: "Email", value: PROFILE.email, href: `mailto:${PROFILE.email}` },
-  { label: "Phone", value: PROFILE.phone, href: PROFILE.phoneHref },
   { label: "GitHub", value: PROFILE.githubHandle, href: PROFILE.github },
   { label: "LinkedIn", value: PROFILE.linkedinHandle, href: PROFILE.linkedin },
 ];
@@ -32,7 +31,7 @@ export default function Contact() {
           ease: EASE.out,
           stagger: 0.09,
           scrollTrigger: { trigger: root.current, start: "top 62%" },
-        },
+        }
       );
       gsap.fromTo(
         "[data-link-row]",
@@ -44,7 +43,7 @@ export default function Contact() {
           stagger: 0.08,
           ease: EASE.soft,
           scrollTrigger: { trigger: "[data-links]", start: "top 85%" },
-        },
+        }
       );
     }, root);
     return () => ctx.revert();

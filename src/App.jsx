@@ -11,7 +11,6 @@ const About = lazy(() => import("./components/sections/About"));
 const Stack = lazy(() => import("./components/sections/Stack"));
 const Work = lazy(() => import("./components/sections/Work"));
 const Experience = lazy(() => import("./components/sections/Experience"));
-const Testimonials = lazy(() => import("./components/sections/Testimonials"));
 const Contact = lazy(() => import("./components/sections/Contact"));
 const Footer = lazy(() => import("./components/sections/Footer"));
 
@@ -42,7 +41,6 @@ export default function App() {
           <Stack />
           <Work />
           <Experience />
-          <Testimonials />
 
           <div className="band border-y border-ink/15 bg-bone py-4">
             <Marquee

@@ -10,7 +10,6 @@ export default function Experience() {
     const ctx = gsap.context(() => {
       if (reduced()) return;
 
-      // the vertical timeline rule draws itself as you scroll
       gsap.fromTo(
         "[data-spine]",
         { scaleY: 0 },
@@ -23,7 +22,7 @@ export default function Experience() {
             end: "bottom 80%",
             scrub: 1,
           },
-        },
+        }
       );
 
       gsap.utils.toArray("[data-exp]").forEach((row) => {
@@ -37,21 +36,9 @@ export default function Experience() {
             ease: EASE.soft,
             stagger: 0.09,
             scrollTrigger: { trigger: row, start: "top 80%" },
-          },
+          }
         );
       });
-
-      gsap.fromTo(
-        "[data-stat]",
-        { yPercent: 105 },
-        {
-          yPercent: 0,
-          duration: 1.1,
-          ease: EASE.out,
-          stagger: 0.1,
-          scrollTrigger: { trigger: "[data-stats]", start: "top 85%" },
-        },
-      );
     }, root);
     return () => ctx.revert();
   }, []);
@@ -71,11 +58,10 @@ export default function Experience() {
       </h2>
 
       <div data-timeline className="relative pl-6 md:pl-16">
-        {/* drawn spine */}
         <span
           data-spine
           aria-hidden
-          className="absolute left-0 top-2 h-full w-px origin-top bg-ink/25 md:left-6"
+          className="absolute left-0 top-2 h-full w-px origin-top bg-dust/25 md:left-6"
         />
 
         {EXPERIENCE.map((e) => (
@@ -101,45 +87,19 @@ export default function Experience() {
                 </p>
                 <p
                   data-exp-item
-                  className="mt-6 max-w-[58ch] text-base leading-relaxed text-ink/65 md:text-lg"
+                  className="mt-6 max-w-[58ch] text-dust/70 md:text-lg"
                 >
                   {e.desc}
                 </p>
                 <ul data-exp-item className="mt-7 flex flex-wrap gap-x-4 gap-y-2">
                   {e.tech.map((t) => (
-                    <li key={t} className="meta border border-ink/20 px-3 py-1.5 text-dust">
+                    <li key={t} className="meta border border-dust/20 px-3 py-1.5 text-dust">
                       {t}
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      {/* headline stats */}
-      <div
-        data-stats
-        className="mt-24 grid grid-cols-2 gap-px border-t border-ink/15 md:mt-36 md:grid-cols-4"
-      >
-        {[
-          { v: PROFILE.experience, l: "Year Experience" },
-          { v: "10+", l: "Technologies" },
-          { v: "4", l: "Happy Clients" },
-          { v: "100%", l: "Responsive" },
-        ].map((s) => (
-          <div key={s.l} className="border-b border-ink/15 py-8 pr-6">
-            <span className="line-mask">
-              <span
-                data-stat
-                className="font-display inline-block"
-                style={{ fontSize: "clamp(2.6rem, 7vw, 5.5rem)" }}
-              >
-                {s.v}
-              </span>
-            </span>
-            <p className="meta mt-2 text-dust">{s.l}</p>
           </div>
         ))}
       </div>

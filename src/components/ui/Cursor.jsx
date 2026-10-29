@@ -49,7 +49,7 @@ export default function Cursor() {
       className="pointer-events-none fixed left-0 top-0 z-[999] hidden mix-blend-difference [@media(pointer:fine)]:block"
     >
       <div
-        className="flex items-center justify-center rounded-full bg-white transition-[transform,opacity] duration-[400ms] ease-[cubic-bezier(.16,1,.3,1)]"
+        className="flex items-center justify-center rounded-full bg-ink transition-[transform,opacity] duration-[400ms] ease-[cubic-bezier(.16,1,.3,1)]"
         style={{
           width: BASE,
           height: BASE,
@@ -60,7 +60,7 @@ export default function Cursor() {
         }}
       >
         <span
-          className="meta text-black transition-opacity duration-200"
+          className="meta text-bone transition-opacity duration-200"
           style={{ opacity: mode === "view" ? 1 : 0, fontSize: 10 }}
         >
           View

@@ -12,7 +12,6 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       const chars = gsap.utils.toArray("[data-char]");
 
-      // --- entrance ------------------------------------------------
       if (reduced()) {
         gsap.set(chars, { yPercent: 0, opacity: 1 });
         gsap.set("[data-hero-fade]", { opacity: 1, y: 0 });
@@ -28,7 +27,7 @@ export default function Hero() {
             duration: 1.2,
             ease: EASE.out,
             stagger: { each: 0.035, from: "start" },
-          },
+          }
         ).fromTo(
           "[data-hero-fade]",
           { opacity: 0, y: 18 },
@@ -39,7 +38,6 @@ export default function Hero() {
 
       const mm = gsap.matchMedia();
 
-      // --- desktop: pointer parallax + liquid warp -----------------
       mm.add("(min-width: 1024px) and (pointer) and (prefers-reduced-motion: no-preference)", () => {
         const xTo = gsap.quickTo("[data-hero-lockup]", "x", { duration: 1.1, ease: "power3.out" });
         const yTo = gsap.quickTo("[data-hero-lockup]", "y", { duration: 1.1, ease: "power3.out" });
@@ -53,7 +51,6 @@ export default function Hero() {
         };
         window.addEventListener("pointermove", onMove, { passive: true });
 
-        // liquid distortion pulses with scroll velocity
         const st = ScrollTrigger.create({
           trigger: root.current,
           start: "top top",
@@ -75,7 +72,6 @@ export default function Hero() {
         };
       });
 
-      // --- hover: characters react elastically to the pointer -------
       mm.add("(pointer) and (prefers-reduced-motion: no-preference)", () => {
         const lockup = root.current.querySelector("[data-hero-lockup]");
         const items = gsap.utils.toArray("[data-char]", lockup);
@@ -88,7 +84,6 @@ export default function Hero() {
           cx: 0,
         }));
 
-        // cache centres; recompute only on resize, never per pointer move
         const measure = () =>
           setters.forEach((s) => {
             const r = s.el.getBoundingClientRect();
@@ -105,7 +100,7 @@ export default function Hero() {
           setters.forEach((s) => {
             const d = Math.abs(px - s.cx);
             const f = d > RADIUS ? 0 : 1 - d / RADIUS;
-            const e = f * f * (3 - 2 * f); // smoothstep
+            const e = f * f * (3 - 2 * f);
             s.y(-34 * e);
             s.sy(1 + 0.42 * e);
             s.sx(1 - 0.06 * e);
@@ -135,7 +130,6 @@ export default function Hero() {
         };
       });
 
-      // --- scroll-out: the lockup sinks and scales ------------------
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.to("[data-hero-inner]", {
           yPercent: -14,
@@ -161,7 +155,6 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-[100svh] flex-col justify-between overflow-hidden px-[var(--pad)] pb-8 pt-28 md:pt-32"
     >
-      {/* displacement filter for the liquid headline warp */}
       <svg className="pointer-events-none absolute h-0 w-0" aria-hidden>
         <filter id="liquid">
           <feTurbulence
@@ -175,7 +168,6 @@ export default function Hero() {
         </filter>
       </svg>
 
-      {/* top meta row */}
       <div className="flex items-start justify-between" data-hero-fade>
         <p className="meta max-w-[14ch] text-dust">
           {PROFILE.role}
@@ -185,7 +177,6 @@ export default function Hero() {
         <p className="meta hidden text-dust md:block">Portfolio — 2026</p>
       </div>
 
-      {/* the lockup */}
       <div data-hero-inner className="relative flex-1 flex flex-col justify-center py-6">
         <div data-hero-lockup className="will-change-transform" style={{ filter: "url(#liquid)" }}>
           <h1 className="font-display text-center" style={{ fontSize: "var(--fs-mega)" }}>
@@ -194,7 +185,7 @@ export default function Hero() {
             </span>
           </h1>
           <div className="mt-2 flex items-center justify-center gap-[0.4em] md:mt-4">
-            <span className="hidden h-px flex-1 bg-ink/25 md:block" data-hero-fade />
+            <span className="hidden h-px flex-1 bg-dust/25 md:block" data-hero-fade />
             <h2
               className="font-display whitespace-nowrap"
               style={{ fontSize: "clamp(1.5rem, 5.2vw, 5.4rem)", letterSpacing: "0.02em" }}
@@ -203,16 +194,15 @@ export default function Hero() {
                 <SplitChars text="Developer" />
               </span>
             </h2>
-            <span className="hidden h-px flex-1 bg-ink/25 md:block" data-hero-fade />
+            <span className="hidden h-px flex-1 bg-dust/25 md:block" data-hero-fade />
           </div>
         </div>
 
-        {/* discipline row */}
         <div
           data-hero-fade
           className="mt-8 flex justify-center gap-6 text-dust md:mt-12 md:gap-16"
         >
-          {["React", "Tailwind", "Flutter"].map((t) => (
+          {["React", "Tailwind"].map((t) => (
             <span key={t} className="meta">
               {t}
             </span>
@@ -220,14 +210,13 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* bottom row */}
       <div className="flex items-end justify-between" data-hero-fade>
         <p className="meta max-w-[22ch] leading-relaxed text-dust">
           Freelance developer from Nagpur building fast, responsive websites clients love.
         </p>
         <div className="flex flex-col items-center gap-2">
           <span className="meta text-dust">Scroll</span>
-          <span className="block h-10 w-px animate-pulse bg-ink/40" />
+          <span className="block h-10 w-px animate-pulse bg-dust/40" />
         </div>
         <p className="meta hidden text-dust md:block">Available for Work</p>
       </div>
